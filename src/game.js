@@ -1,15 +1,17 @@
 import Input from './input';
 
-/** @class Game
-  * A class representing the high-level functionality
-  * of a game - the game loop, buffer swapping, etc.
-  */
+/**
+ * @class Game
+ * A class representing the high-level functionality
+ * of a game - the game loop, buffer swapping, etc.
+ */
 export default class Game {
-    /** @constructor
-      * Creates the game instance
-      * @param {integer} width - the width of the game screen in pixels
-      * @param {integer} heght - the height of the game screen in pixels
-      */
+    /**
+     * @constructor
+     * Creates the game instance
+     * @param {integer} width - the width of the game screen in pixels
+     * @param {integer} heght - the height of the game screen in pixels
+     */
     constructor(width, height) {
         this._start = null;
         this.WIDTH = width;
@@ -30,19 +32,21 @@ export default class Game {
         this.screenBufferCtx = this.screenBuffer.getContext('2d');
         document.body.append(this.screenBuffer);
     }
-    /** @method addEntity
-      * Adds an entity to the game world
-      * Entities should have an update() and render()
-      * method.
-      * @param {Object} entity - the entity.
-      */
+    /**
+     * @method addEntity
+     * Adds an entity to the game world
+     * Entities should have an update() and render()
+     * method.
+     * @param {Object} entity - the entity.
+     */
     addEntity(entity) {
         this.entities.push(entity);
     }
-    /** @method update
-      * Updates the game state
-      * @param {integer} elapsedTime - the number of milliseconds per frame
-      */
+    /**
+     * @method update
+     * Updates the game state
+     * @param {integer} elapsedTime - the number of milliseconds per frame
+     */
     update(elapsedTime) {
 
         // Update game entitites
@@ -51,10 +55,11 @@ export default class Game {
         // Swap input buffers
         this.input.update();
     }
-    /** @method render
-      * Renders the game state
-      * @param {integer} elapsedTime - the number of milliseconds per frame
-      */
+    /**
+     * @method render
+     * Renders the game state
+     * @param {integer} elapsedTime - the number of milliseconds per frame
+     */
     render(elapsedTime) {
         // Clear the back buffer
         this.backBufferCtx.fillStyle = "white";
@@ -68,11 +73,12 @@ export default class Game {
         // Flip the back buffer
         this.screenBufferCtx.drawImage(this.backBuffer, 0, 0);
     }
-    /** @method loop
-      * Updates and renders the game,
-      * and calls itself on the next draw cycle.
-      * @param {DOMHighResTimestamp} timestamp - the current system time
-      */
+    /**
+     * @method loop
+     * Updates and renders the game,
+     * and calls itself on the next draw cycle.
+     * @param {DOMHighResTimestamp} timestamp - the current system time
+     */
     loop(timestamp) {
         var elapsedTime = this._frame_start ? timestamp - this._frame_start : 0;
         this.update(elapsedTime);
