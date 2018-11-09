@@ -1,5 +1,5 @@
 # tile-map-explorer
-A HTML5 tile game starter 
+A HTML5 tile game starter
 
 ## Getting Started
 
@@ -7,8 +7,8 @@ Clone the project, and install dependencies:
 
 `
 $ git clone https://github.com/CIS580/tile-map-explorer.git
-$ cd tile-map-explorer 
-$ npm install 
+$ cd tile-map-explorer
+$ npm install
 `
 
 You can then run the project in development mode:
