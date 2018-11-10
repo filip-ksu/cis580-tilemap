@@ -14,13 +14,17 @@ export default class Input {
         this.newState = {}
 
         window.addEventListener('keydown', (event) => {
-            event.preventDefault();
-            this.newState[event.key] = true;
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+                this.newState[event.key] = true;
+            }
         });
 
         window.addEventListener('keyup', (event) => {
-            event.preventDefault();
-            this.newState[event.key] = false;
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+                this.newState[event.key] = false;
+            }
         });
 
     }

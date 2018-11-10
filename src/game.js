@@ -19,6 +19,10 @@ export default class Game {
         this.input = new Input();
         this.entities = [];
 
+        this.data = require("./tilemap.json");
+        this.tileset = document.createElement("img");
+        this.tileset.src = this.data.tilesets[0].image;
+
         // Set up the back buffer
         this.backBuffer = document.createElement('canvas');
         this.backBuffer.width = this.WIDTH;
